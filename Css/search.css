@@ -1,0 +1,86 @@
+body {
+  display: grid;
+  font-family: 'Arial', sans-serif;
+  font-style: normal;
+  font-size: 16;
+  margin: 0;
+  overflow: scroll;
+  grid-template-columns: 25% auto 25%;
+  grid-template-rows: 40px 80px auto;
+  background: rgb(231, 231, 231);
+}
+
+.navBar {
+  grid-column: 1 / 4;
+  grid-row: 1 / 2;
+  background: rgb(77, 83, 108);
+}
+
+.searchBar {
+  position: absolute;
+  left: 350px;
+}
+
+.searchRes {
+  grid-column: 2 / 3;
+  grid-row: 2 / 4;
+  background: rgb(231, 231, 231)
+}
+
+.navBar > .searchBar form input[type="text"]{
+  padding: 5px;
+  border: 1px solid rgb(222, 222, 222);
+  border-radius: 3px;
+  margin: 5px;
+  width: 250px;
+}
+
+.searchBar form input[type="submit"]{
+  border: none;
+  border: 1px solid rgb(222, 222, 222);
+  padding: 5px;
+  background: white;
+  border-radius: 3px;
+  width: 50px;
+}
+
+.result {
+  border: 2px solid rgb(222, 222, 222);
+  background: white;
+  border-radius: 5px;
+  margin: 5px;
+  height: auto;
+  text-decoration: none;
+}
+
+.home {
+  font-family: 'Candal', sans-serif;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-size: 25px;
+  position: absolute;
+  right: 375px;
+}
+
+.prof {
+  font-family: 'Candal', sans-serif;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-size: 25px;
+  position: absolute;
+  right: 475px;
+}
+
+.logout {
+
+  font-family: 'Candal', sans-serif;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  }
