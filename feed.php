@@ -2,7 +2,6 @@
 	require("Core/common.php");
 
 	$name = array_values($_SESSION['user']);
-
 ?>
 <html>
 
@@ -47,16 +46,23 @@
 			 while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 				 $username = $row['username'];
 				 $message = $row['message'];
+				 $id = $row['id'];
 
-				 $post = "<div class='post'><a name='profile' href='profile.php?u=$username'>".$username."</a>".$message."</div>";
-				 echo $post;
+				//  $post = "<div class='post'><a name='profile' href='profile.php?u=$username'>".$username."</a>".$id.' '.$message."</div>";
+				//  echo $post;
+
+				echo "<div class='post'>";
+				echo "<a name='profile' href='profile.php?u=$username'>".$username."</a>$id";
+				echo " $message ";
+				echo "<form><input type='text' placeholder='comment ...'>";
+				echo "<input type='submit' value='post' name='$id' onclick='getName()'></form>";
+
+				echo "</div>";
 
 				 if(profile == true){
 					 $_SESSION['profile'] = $username;
 				 }
 			 }
-
-
 		 ?>
 		</div>
 
