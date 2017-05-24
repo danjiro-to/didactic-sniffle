@@ -43,7 +43,7 @@ if(!empty($_POST)) {
         unset($row['password']);
 
 
-        $_SESSION['user'] = $row;
+        $_SESSION['user'] = $row['username'];
 
 
         header("Location: ../feed.php");

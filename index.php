@@ -28,13 +28,13 @@
                 <input id="libutton" type="submit" value="Log In" />
             </form>
           </div>
+          <a href="index.php"><img src="raccoon.jpg" class="racface" alt="Raccoon Face" width="200px" height="200px"></a>
         </div>
 
 
         <div class="main">
-          <a href="index.php" ><img src="register.jpg" class="regrac" alt="Raccoon" width="400px" height="400px"></a>
+          <a href="index.php" ><img src="register.jpg" class="racbeer" alt="Raccoon Beer" width="400px" height="400px"></a>
           <div class="registerForm">
-
             <form action="Core/register.php" method="post" class="rform">
               <h1>Sign up now</h1>
               <p>You'll love raccoons</p>
@@ -53,7 +53,7 @@
         </div>
 
         <div class="footer">
-            Copyright (c) 2017 Copyright Holder All Rights Reserved.
+            <a href="https://github.com/gem3141/Trill" > Copyright (c) 2017 Copyright Holder All Rights Reserved. </a>
         </div>
 
     </div>
