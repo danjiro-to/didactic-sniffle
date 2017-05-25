@@ -83,7 +83,7 @@
             ':password' => $password,
             ':salt' => $salt,
             ':email' => $_POST['email'],
-            ':friends' => $_POST['username']
+            ':friends' => "'".$_POST['username']."'"
         );
 //
         try
