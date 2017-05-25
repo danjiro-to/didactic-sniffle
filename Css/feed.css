@@ -94,7 +94,7 @@ body {
   background: white;
   border: 1px solid rgb(212, 212, 212);
   border-radius: 2px;
-  height: 150px;
+  height: 170px;
   margin: 5px 0px;;
 }
 
@@ -102,7 +102,7 @@ body {
   border: none;
   border-top: 1px solid rgb(226, 226, 226);
   border-bottom: 1px solid rgb(226, 226, 226);
-  height: 50%;
+  height: 30%;
   width: 98%;
   resize: none;
   margin: 5px;
@@ -128,6 +128,7 @@ body {
   height: 15%;
   width: 98%;
   color: white;
+  margin-top: 0px;
 }
 
 .postpost:hover {
@@ -204,4 +205,16 @@ body {
   border-top-right-radius: 2px;
   border-bottom-right-radius: 2px;
   width: 19%;
+}
+
+.writehashtag{
+  border: none;
+  border-top: 1px solid rgb(226, 226, 226);
+  border-bottom: 1px solid rgb(226, 226, 226);
+  height: 15%;
+  width: 98%;
+  resize: none;
+  margin: 5px;
+  margin-bottom: 10px;
+  font-size: 15;
 }

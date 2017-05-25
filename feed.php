@@ -42,6 +42,7 @@
 				</div>
 				<form action="Core/post.php" method="post">
 					<textarea name="writepost" class="writepost" placeholder="Write about your day..."></textarea>
+					<input type="text" name="hashtags" class="writehashtag" placeholder="Write a Hashtag...">
 					<input type="submit" name="postpost" class="postpost" value="Post">
 				</form>
 			</div>
@@ -55,16 +56,12 @@
 							 	$result = $stmt->execute($query_params);
 								$row = $stmt->fetch(PDO::FETCH_ASSOC);
 								$friendArray = $row['friends'];
-								if($friendArray != '') {
-									$friendArray = explode(',' ,$friendArray);
-								}
+								
+								$query = "SELECT * FROM posts WHERE username IN ($friendArray) ORDER BY id DESC";
 
-								// $query = "SELECT * FROM posts LEFT JOIN users ON posts.username = users.username ORDER BY posts.id DESC";
-								for($i = 0; $i < count($friendArray); $i++) {
-								$query = "SELECT * FROM posts WHERE username = :friends ORDER BY id DESC";
-								$query_params = array(':friends' => $friendArray[$i]);
 								$stmt = $db->prepare($query);
- 							  $result = $stmt->execute($query_params);
+ 							  $result = $stmt->execute();
+
 
 								 while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 									 $username = $row['username'];
@@ -78,7 +75,6 @@
 									echo "<div class='postContent'> $message </div>";
 									echo "</div>";
 
-								}
 								 }
 						 ?>
 			</div>

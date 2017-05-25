@@ -9,7 +9,7 @@ if(isset($_POST['searchVal'])) {
 
     $searchq = $_POST['searchVal'];
 
-    $query = "SELECT * FROM users WHERE firstname LIKE '$searchq%' OR lastname LIKE '$searchq%' OR username LIKE '$searchq' LIMIT 10";
+    $query = "SELECT * FROM users WHERE users.firstname LIKE '$searchq%' OR users.lastname LIKE '$searchq%' OR users.username LIKE '$searchq' LIMIT 10";
 
     $stmt = $db->prepare($query);
     // $stmt = $db->query("SELECT * FROM trill.search_test WHERE firstname LIKE '%$searchq%' OR lastname LIKE '%$searchq%'");

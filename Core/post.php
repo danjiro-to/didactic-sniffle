@@ -3,11 +3,12 @@ require("common.php");
 
     if(!empty($_POST['writepost'])) {
 
-      $query = "INSERT INTO posts (username, message) VALUES (:username, :messageq)";
+      $query = "INSERT INTO posts (username, message, hashtag) VALUES (:username, :messageq, :hashtags)";
 
        $query_params = array(
          ':username' => $_SESSION['user'],
-         ':messageq' => $_POST['writepost']
+         ':messageq' => $_POST['writepost'],
+         ':hashtags' => $_POST['hashtag']
        );
 
        try {

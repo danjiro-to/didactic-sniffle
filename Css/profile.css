@@ -48,7 +48,7 @@ body {
   margin: 0 auto;
   display: grid;
   grid-template-columns: 2fr 3fr 2fr;
-  grid-template-rows: 30px auto;
+  grid-template-rows: 30px auto 150px auto;
   overflow-y: scroll;
   background: rgb(230, 230, 230);
 }
@@ -116,6 +116,7 @@ body {
   border: 1px solid rgb(212, 212, 212);
   border-radius: 2px;
   height: 150px;
+  align-items: start;
 }
 
 .infoprofile {
@@ -144,6 +145,7 @@ body {
   grid-row: 4 / 5;
   /*padding: 10px;*/
   background: rgb(230, 230, 230);
+  align-items: start;
 }
 
 .post {
@@ -187,7 +189,7 @@ body {
   border-right: none;
   border-top-left-radius: 2px;
   border-bottom-left-radius: 2px;
-  width: 250px;
+  width: 80%;
 }
 
 .searchbar input[type="submit"]{
@@ -199,5 +201,5 @@ body {
   background: rgb(200, 200, 200);
   border-top-right-radius: 2px;
   border-bottom-right-radius: 2px;
-  width: auto;
+  width: 19%;
 }
