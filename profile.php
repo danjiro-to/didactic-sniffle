@@ -24,7 +24,7 @@
 			<nav>
 				<a href="feed.php" id="home"> Home </a>
 				<a href="profile.php?u=<?php echo $_SESSION['user']; ?>" id="profile"> <?php echo $_SESSION['user']; ?></a>
-				<a href="about.php" id="about"> About </a>
+				<a href="https://github.com/gem3141/Trill/wiki" id="about"> About </a>
 				<a href="Core/logout.php" id="logout"> Logout </a>
 			</nav>
 		</div>
@@ -115,7 +115,7 @@
 							 echo "<p>Email: $email</p>";
               }
 
-							
+
           ?>
         </div>
 			</div>
