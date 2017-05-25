@@ -33,7 +33,7 @@
 
 
         <div class="main">
-          <iframe class="racbeer" width="520" height="315" src="https://www.youtube.com/embed/q6EoRBvdVPQ" frameborder="0" allowfullscreen></iframe>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/7ZNpSra5icw" frameborder="0" allowfullscreen></iframe>
           <!-- <a href="index.php" ><img src="register.jpg" class="racbeer" alt="Raccoon Beer" width="400px" height="400px"></a> -->
           <div class="registerForm">
             <form action="Core/register.php" method="post" class="rform">
