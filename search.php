@@ -18,7 +18,7 @@ if(!empty($_GET['search'])) {
     $count = $stmt->rowCount();
 
     if($count == 0) {
-      $output = "<div class='unknown'> No result. </div>";
+      $output = "<li> No result </li>";
     }
     else {
 
@@ -27,7 +27,7 @@ if(!empty($_GET['search'])) {
         $fname = $row['firstname'];
         $lname = $row['lastname'];
 
-        $output .= "<div class='result'><a href='profile.php?u=$username'>".$fname.' '.$lname."</a></div>";
+        $output .= "<li><a href='profile.php?u=$username'>".$fname.' '.$lname."</a></li>";
 
       }
    }
@@ -45,26 +45,35 @@ if(!empty($_GET['search'])) {
 		<title> Trill </title>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script type="text/javascript" src="Js/search.js"></script>
-		<script type="text/javascript" src="Js/post.js"></script>
  		<link rel='stylesheet' type='text/css' href="Css/search.css"/>
 	</head>
 
 	<body>
-	<div class="navbar">
-    <a href="feed.php" class="home"> Home </a>
-    <a href='profile.php?u=<?php echo $name[1]?>' class="prof"> <?php echo $name[1]; ?> </a>
-    <a href='Core/logout.php' class="logout"> Log Out </a>
-    <div class="searchBar">
-		<form action="search.php" method="get">
-			<input type="text" name="search" placeholder="Search..." autocomplete="off">
-			<input type="submit" value=">>">
+    <div class="navbar">
+      <nav>
+        <a href="feed.php" id="home"> Home </a>
+        <a href="profile.php?u=<?php echo $_SESSION['user'] ?>" id="profile"> <?php echo $_SESSION['user'] ?></a>
+        <a href="about.php" id="about"> About </a>
+        <a href="Core/logout.php" id="logout"> Logout </a>
+      </nav>
     </div>
-		</form>
-	</div>
 
-  <div class="searchRes">
-      <?php echo $output; ?>
+     <div class="wrapper">
+
+       <div class="searchbar">
+ 				<form action="search.php" method="get">
+ 					<input type="text" name="search" placeholder="Search..." autocomplete="off" onkeyup="searchq()">
+ 					<input type="submit" value="Search">
+ 				</form>
+
+ 			</div>
+
+  <div class="results">
+    <ul class="output">
+      <?php echo $output ?>
+    </ul>
   </div>
 
+    </div>
   </body>
 </html>

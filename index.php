@@ -33,19 +33,20 @@
 
 
         <div class="main">
-          <a href="index.php" ><img src="register.jpg" class="racbeer" alt="Raccoon Beer" width="400px" height="400px"></a>
+          <iframe class="racbeer" width="520" height="315" src="https://www.youtube.com/embed/q6EoRBvdVPQ" frameborder="0" allowfullscreen></iframe>
+          <!-- <a href="index.php" ><img src="register.jpg" class="racbeer" alt="Raccoon Beer" width="400px" height="400px"></a> -->
           <div class="registerForm">
             <form action="Core/register.php" method="post" class="rform">
               <h1>Sign up now</h1>
               <p>You'll love raccoons</p>
                 <input type="text" name="firstname" id="firstname" placeholder="First" autocomplete="off"required/>
-                <input type="text" name="lastname" placeholder="Last" autocomplete="off" required/>
+                <input type="text" name="lastname" id="lastname" placeholder="Last" autocomplete="off" required/>
               </br></br>
-                <input type="text" name="username" placeholder="Username" autocomplete="off" required/>
+                <input type="text" name="username" id="username" placeholder="Username" autocomplete="off" required/>
               </br></br>
-                <input type="text" name="email" placeholder="Email" autocomplete="off" required/>
+                <input type="text" name="email" id="email" placeholder="Email" autocomplete="off" required/>
               </br></br>
-                <input type="password" name="password" placeholder="Password" required/>
+                <input type="password" name="password" id="password" placeholder="Password" required/>
               </br></br>
                 <input type="submit" value="Register"/>
             </form>

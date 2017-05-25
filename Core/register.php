@@ -64,7 +64,7 @@
             die("This email address is already registered");
         }
 //
-        $query = "INSERT INTO users (firstname, lastname, username, password, salt, email) VALUES (:firstname, :lastname, :username, :password, :salt, :email)";
+        $query = "INSERT INTO users (firstname, lastname, username, password, salt, email, friends) VALUES (:firstname, :lastname, :username, :password, :salt, :email, :friends)";
 
         $salt = dechex(mt_rand(0, 2147483647)) . dechex(mt_rand(0, 2147483647));
 
@@ -82,7 +82,8 @@
             ':username' => $_POST['username'],
             ':password' => $password,
             ':salt' => $salt,
-            ':email' => $_POST['email']
+            ':email' => $_POST['email'],
+            ':friends' => $_POST['username']
         );
 //
         try
@@ -94,7 +95,7 @@
         catch(PDOException $ex)
         {
 
-            die("Failed to run query: " . $ex->getMessage());
+            die("Register failed");
         }
 
         header("Location: ../index.php");

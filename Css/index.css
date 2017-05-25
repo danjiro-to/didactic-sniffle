@@ -31,6 +31,8 @@ body{
   grid-column: 1 / 3;
   grid-row: 2 / 3;
   background: white;
+  text-align: center;
+  text-decoration: none;
 }
 
 /* header */
@@ -93,19 +95,31 @@ body{
 
 .rform {
   font-family: 'Arial', sans-serif;
+  display: block;
+  float: right;
+  margin: 30px;
   /*float: right;*/
 }
 
 .racbeer {
+  display: block;
+  float: left;
+  margin: 60px 10px;
 
-  /*float: left;*/
 }
-
 .rform h1{
   color: black;
   line-height: 1em;
 }
 
+.rform p {
+  font-size: 20;
+  color: rgb(99, 99, 99);
+}
+
+.rform input {
+  font-size: 20;
+}
 .rform input[type="text"], .rform input[type="password"]{
   border: 1px solid rgb(100, 100, 100);
   border-radius: 2px;
@@ -124,4 +138,14 @@ body{
   border-radius: 2px;
   padding: 5px;
   background: rgb(215, 210, 177);
+}
+
+input[id="username"], input[id="password"], input[id="email"] {
+  width: 99%;
+}
+
+.rform input[type="submit"] {
+  border: 1px solid rgb(100, 100, 100);
+  background: rgb(170, 170, 170);
+  border-radius: 2px;
 }

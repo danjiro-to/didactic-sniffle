@@ -22,11 +22,11 @@ if(isset($_POST['searchVal'])) {
     else {
 
       while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-
+        $username = $row['username'];
         $fname = $row['firstname'];
         $lname = $row['lastname'];
 
-        $output .= '<li>'.$fname.' '.$lname.'</li>';
+        $output .= "<li><a href='profile.php?u=$username'>".$fname.' '.$lname."</a></li>";
 
       }
    }

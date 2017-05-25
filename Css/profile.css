@@ -16,21 +16,30 @@ body {
   border-bottom: 1px solid rgb(226, 226, 226);
 }
 
+.navbar a {
+  display: block;
+  float: left;
+  text-decoration: none;
+  font-size: 18;
+  font-weight: bold;
+  color: white;
+  height: 100%;
+  margin: 2px 5px;
+  padding: 2px 5px;
+  border-radius: 2px;
+}
 
-.output {
-  list-style: none;
-  margin: 0px;
-  padding: 0px;
-  margin-top: 10px;
-  z-index: 15;
-  }
+.navbar a:hover {
+  color: white;
+  background: rgb(80, 80, 80);
+}
 
-.output li {
- display: block;
- height: 30px;
- border: 1px solid #ccc;
- background: white;
- padding: 3px;
+.navbar a[id="home"], .navbar a[id="profile"] {
+  float: left;
+}
+
+.navbar a[id="about"], .navbar a[id="logout"] {
+  float: right;
 }
 
 .wrapper {
@@ -39,16 +48,70 @@ body {
   margin: 0 auto;
   display: grid;
   grid-template-columns: 2fr 3fr 2fr;
-  grid-template-rows: 55px auto;
+  grid-template-rows: 30px auto;
   overflow-y: scroll;
   background: rgb(230, 230, 230);
+}
+
+.searchbar {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  background: rgb(230, 230, 230);
+  margin: 5px 0px;
+}
+
+.output {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+  }
+
+.output li {
+ display: block;
+ height: auto;
+ border: 1px solid #ccc;
+ border-radius: 2px;
+ background: white;
+ padding: 3px;
+}
+
+.output a {
+  text-decoration: none;
+  color: rgb(99, 99, 99);
+  font-size: 17;
+}
+
+.output a:hover {
+  text-decoration: underline;
+  color: rgb(39, 150, 198);
+}
+
+.searchbar input[type="text"]{
+  padding: 5px;
+  border: 1px solid rgb(222, 222, 222);
+  border-right: none;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+  width: 80%;
+}
+
+.searchbar input[type="submit"]{
+  border: 1px solid rgb(99, 99, 99);
+  border-left: none;
+  margin-left: 0;
+  padding: 5px;
+  font-weight: bold;
+  background: rgb(200, 200, 200);
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+  width: 19%;
 }
 
 /* new post */
 
 .profile {
   grid-column: 2 / 3;
-  grid-row: 2 / 3;
+  grid-row: 3 / 4;
   background: white;
   border: 1px solid rgb(212, 212, 212);
   border-radius: 2px;
@@ -78,7 +141,7 @@ body {
 
 .feed {
   grid-column: 2 / 3;
-  grid-row: 2 / 3;
+  grid-row: 4 / 5;
   /*padding: 10px;*/
   background: rgb(230, 230, 230);
 }
@@ -133,7 +196,7 @@ body {
   margin-left: 0;
   padding: 5px;
   font-weight: bold;
-  background: rgb(170, 170, 170);
+  background: rgb(200, 200, 200);
   border-top-right-radius: 2px;
   border-bottom-right-radius: 2px;
   width: auto;

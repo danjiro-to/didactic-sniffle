@@ -51,7 +51,7 @@ if(!empty($_POST)) {
     }
     else
     {
-        $failed ="Login Failed.";
+        die("Login Failed");
 
     }
 }
