@@ -9,7 +9,7 @@ if(isset($_POST['searchVal'])) {
 
     $searchq = $_POST['searchVal'];
 
-    $query = "SELECT * FROM trill.search_test WHERE firstname LIKE '$searchq%' OR lastname LIKE '$searchq%'";
+    $query = "SELECT * FROM users WHERE firstname LIKE '$searchq%' OR lastname LIKE '$searchq%' OR username LIKE '$searchq' LIMIT 10";
 
     $stmt = $db->prepare($query);
     // $stmt = $db->query("SELECT * FROM trill.search_test WHERE firstname LIKE '%$searchq%' OR lastname LIKE '%$searchq%'");
@@ -17,19 +17,22 @@ if(isset($_POST['searchVal'])) {
     $count = $stmt->rowCount();
 
     if($count == 0) {
-      $output = "Aww... Nothing found.";
+      $output = "<li>No results</li>";
     }
     else {
 
       while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+
         $fname = $row['firstname'];
         $lname = $row['lastname'];
 
-        $output .= '<div>'.$fname.' '.$lname.'</div>';
+        $output .= '<li>'.$fname.' '.$lname.'</li>';
 
       }
    }
 
 }
+
+
 
 echo $output;

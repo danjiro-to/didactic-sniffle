@@ -1,20 +1,21 @@
 <?php
 require("common.php");
 
-    $name = array_values($_SESSION['user']);
-
-    if(!empty($_POST['newPost'])) {
+    if(!empty($_POST['writepost'])) {
 
       $query = "INSERT INTO posts (username, message) VALUES (:username, :messageq)";
 
        $query_params = array(
-         ':username' => $name[1],
-         ':messageq' => $_POST['newPost']
+         ':username' => $_SESSION['user'],
+         ':messageq' => $_POST['writepost']
        );
 
-      $stmt = $db->prepare($query);
-      $result = $stmt->execute($query_params);
+       try {
+         $stmt = $db->prepare($query);
+         $result = $stmt->execute($query_params);
+       } catch (PDOException $e) {
+          die("There was a problem while posting");
+       }
 
       header("Location: ../feed.php");
     }
-?>

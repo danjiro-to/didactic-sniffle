@@ -1,14 +1,36 @@
 body {
   margin: 0 auto;
+  font-family: 'Arial', sans-serif;
+  font-size: 14;
 }
+
+/* navBar */
 
 .navbar {
   width: 100%;
   position: fixed;
   top: 0;
-  height: 50px;
+  height: auto;
   background: black;
   z-index: 10;
+  border-bottom: 1px solid rgb(226, 226, 226);
+}
+
+
+.output {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+  margin-top: 10px;
+  z-index: 15;
+  }
+
+.output li {
+ display: block;
+ height: 30px;
+ border: 1px solid #ccc;
+ background: white;
+ padding: 3px;
 }
 
 .wrapper {
@@ -16,139 +38,127 @@ body {
   height: 100%;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-columns: 2fr 3fr 2fr;
+  grid-template-rows: 55px auto;
   overflow-y: scroll;
+  background: rgb(230, 230, 230);
 }
+
+/* new post */
 
 .newpost {
   grid-column: 2 / 3;
-  background: red;
-}
-
-.feed {
-  grid-column: 2 / 3;
-  padding: 10px;
-  background: rgb(245, 245, 245);
-}
-
-
-
-
-
-
-
-
-
-/*body {
-  display: grid;
-  font-family: 'Arial', sans-serif;
-  font-style: normal;
-  font-size: 16;
-  margin: 0;
-  grid-template-columns: 25% auto 25%;
-  grid-template-rows: 40px 80px auto;
-  background: rgb(231, 231, 231);
-}
-
-.navBar {
-  grid-column: 1 / 4;
-  grid-row: 1 / 2;
-  background: rgb(77, 83, 108);
-}
-
-.searchBar {
-  position: absolute;
-  left: 350px;
-}
-
-.empty {
-  grid-column: 2 / 3;
   grid-row: 2 / 3;
-  background: rgb(231, 231, 231);
-}
-
-.emptyy {
-  border: 2px solid rgb(77, 83, 108);
   background: white;
-  height: 80px;
+  border: 1px solid rgb(212, 212, 212);
+  border-radius: 2px;
+  height: 150px;
 }
 
-.empty > .emptyy form textarea {
-  margin: 10px;
-  width: 500px;
-  height: 50px;
-  border: 1px dashed grey;
-  border-radius: 4px;
+.writepost {
+  border: none;
+  border-top: 1px solid rgb(226, 226, 226);
+  border-bottom: 1px solid rgb(226, 226, 226);
+  height: 50%;
+  width: 98%;
   resize: none;
+  margin: 5px;
+  font-size: 15;
 }
 
-.emptyy form input[type="submit"] {
-  position: absolute;
+.titlepost {
+  background: rgb(231, 235, 241);
+  border-bottom: 1px solid rgb(210, 210, 210);
+  color: rgb(99, 99, 99);
+  font-size: 17;
+  font-weight: 400;
+  padding: 5px;
+  box-sizing: border-box;
 }
+
+.postpost {
+  border: 1px;
+  background: black;
+  margin-right: 5px;
+  margin-left: 5px;
+  border-radius: 2px;
+  height: 15%;
+  width: 98%;
+  color: white;
+}
+
+.postpost:hover {
+  border: 1px;
+  background: rgb(190, 190, 190);
+  margin-right: 5px;
+  margin-left: 5px;
+  border-radius: 2px;
+  height: 15%;
+  width: 98%;
+  color: white;
+}
+
+/* POST */
 
 .feed {
   grid-column: 2 / 3;
   grid-row: 3 / 4;
-  background: rgb(231, 231, 231);
-  overflow: scroll;
+  /*padding: 10px;*/
+  background: rgb(230, 230, 230);
 }
 
 .post {
-  border: 2px solid rgb(222, 222, 222);
+  margin-top: 10px;
+  margin-bottom: 5px;
   background: white;
-  border-radius: 5px;
-  margin: 5px;
-  height: 80px;
+  border: 1px solid rgb(212, 212, 212);
+  border-radius: 2px;
+  height: auto;
 }
 
+.postDetails {
+  background: rgb(231, 235, 241);
+  border-bottom: 1px solid rgb(210, 210, 210);
+  padding: 5px;
+}
 
-.navBar > .searchBar form input[type="text"]{
+.profilelink{
+  font-size: 17;
+  text-decoration: none;
+  color: rgb(99, 99, 99);
+}
+
+.profilelink:hover{
+  font-size: 17;
+  text-decoration: none;
+  color: rgb(39, 150, 198);
+  text-decoration: underline;
+}
+
+.postContent {
+  margin: 5px;
+  line-height: 1.5em;
+}
+
+/*------*/
+
+.searchbar input[type="text"]{
   padding: 5px;
   border: 1px solid rgb(222, 222, 222);
-  border-radius: 3px;
-  margin: 5px;
+  border-right: none;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
   width: 250px;
 }
 
-.searchBar form input[type="submit"]{
-  border: none;
-  border: 1px solid rgb(222, 222, 222);
+.searchbar input[type="submit"]{
+  border: 1px solid rgb(99, 99, 99);
+  border-left: none;
+  margin-left: 0;
   padding: 5px;
-  background: white;
-  border-radius: 3px;
-  width: 50px;
-}
-
-.home {
-  font-family: 'Candal', sans-serif;
-  text-decoration: none;
-  color: white;
   font-weight: bold;
-  font-size: 25px;
-  position: absolute;
-  right: 375px;
+  background: rgb(170, 170, 170);
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+  width: auto;
 }
-
-.prof {
-  font-family: 'Candal', sans-serif;
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
-  font-size: 25px;
-  position: absolute;
-  right: 475px;
-}
-
-.logout {
-
-  font-family: 'Candal', sans-serif;
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
-  font-size: 15px;
-  position: absolute;
-  left: 10px;
-  top: 10px;
-  }
-
-  .*/
