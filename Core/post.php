@@ -8,7 +8,7 @@ require("common.php");
        $query_params = array(
          ':username' => $_SESSION['user'],
          ':messageq' => $_POST['writepost'],
-         ':hashtags' => $_POST['hashtag']
+         ':hashtags' => $_POST['hashtags']
        );
 
        try {

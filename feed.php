@@ -56,7 +56,7 @@
 							 	$result = $stmt->execute($query_params);
 								$row = $stmt->fetch(PDO::FETCH_ASSOC);
 								$friendArray = $row['friends'];
-								
+
 								$query = "SELECT * FROM posts WHERE username IN ($friendArray) ORDER BY id DESC";
 
 								$stmt = $db->prepare($query);
@@ -68,10 +68,11 @@
 									//  $fname = $row['firstname'];
 									//  $lname = $row['lastname'];
 									 $message = $row['message'];
+									 $hashtag = $row['hashtag'];
 
 
 									echo "<div class='post'>";
-									echo "<div class='postDetails'><a class='profilelink' href='profile.php?u=$username'>".$username." </a></div>";
+									echo "<div class='postDetails'><a class='profilelink' href='profile.php?u=$username'>".$username." </a> ".$hashtag."</div>";
 									echo "<div class='postContent'> $message </div>";
 									echo "</div>";
 
