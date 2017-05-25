@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: May 25, 2017 at 09:38 AM
+-- Generation Time: May 25, 2017 at 07:16 PM
 -- Server version: 5.6.35
 -- PHP Version: 7.0.15
 
@@ -24,9 +24,21 @@ USE `trill`;
 
 CREATE TABLE `comments` (
   `id` int(11) NOT NULL,
-  `postid` int(11) NOT NULL,
+  `postId` int(11) NOT NULL,
   `username` varchar(255) NOT NULL,
   `comment` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `friend_requests`
+--
+
+CREATE TABLE `friend_requests` (
+  `id` int(11) NOT NULL,
+  `user_from` varchar(255) NOT NULL,
+  `user_to` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -38,24 +50,28 @@ CREATE TABLE `comments` (
 CREATE TABLE `posts` (
   `id` int(11) NOT NULL,
   `username` varchar(255) NOT NULL,
-  `message` varchar(255) NOT NULL
+  `message` varchar(255) NOT NULL,
+  `image` blob NOT NULL,
+  `hashtag` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `posts`
 --
 
-INSERT INTO `posts` (`id`, `username`, `message`) VALUES
-(1, 'dan.turner', 'hello'),
-(2, 'admin', 'hi'),
-(3, 'admin', 'nice'),
-(4, 'admin', 'lets go'),
-(5, 'admin', 'mario'),
-(6, 'dan.turner', 'What a great day'),
-(7, 'test', 'hi'),
-(8, 'test', 'lol'),
-(9, 'test', 'life is fun'),
-(10, 'gem', 'HELLO');
+INSERT INTO `posts` (`id`, `username`, `message`, `image`, `hashtag`) VALUES
+(22, 'admin', 'hi', '', ''),
+(23, 'admin', 'hello', '', ''),
+(24, 'admin', 'im an admin\r\n', '', ''),
+(25, 'admin', 'want help call me', '', ''),
+(26, 'admin', 'trill is the best\r\n', '', ''),
+(27, 'admin', 'yes!\r\n', '', ''),
+(28, 'admin', 'FRIENDS!', '', ''),
+(29, 'faisal.jaradat', 'It is very rainy today!', '', ''),
+(30, 'admin', 'Hi', '', ''),
+(31, 'admin', 'IM an admin', '', ''),
+(32, 'admin', 'hashtag yolo', '', '#yolo'),
+(33, 'dan.turner', 'Hey', '', '#firstpost');
 
 -- --------------------------------------------------------
 
@@ -79,10 +95,13 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `firstname`, `lastname`, `username`, `email`, `password`, `salt`, `friends`) VALUES
-(1, 'admin', 'admin', 'admin', 'admin@trill.com', '7f220405df8039b4d3afbeaa9ac9afbf246e189681325bf2962e9ee7d84b697a', '15c5223843fea642', 'admin,dan.turner,gem'),
-(2, 'Danjiro', 'Turner', 'dan.turner', 'dan.turner@ucc.on.ca', '5cd7462f7cb230e694eb327e4ac1f526bf0342656eb12472bd5961cda798203a', '14deae343f08ea8c', 'dan.turner'),
-(5, 'test', 'test', 'test', 'test@test.com', '2a179923e0d146524c18637f0c716df5fca512d37517dc71889ed64fa83bf5f3', '5e6f07425165a996', 'test,admin,dan.turner'),
-(6, 'gem', 'gem', 'gem', 'gem@gem.com', '23a62e4f589921883140f9ee381e52959fb97250d599b61f438dd68e501fbea8', '58c460b12c2d100b', 'gem,dan.turner,admin');
+(1, 'Dan', 'Turner', 'dan.turner', 'dan.turner@ucc.on.ca', 'ec445175477dd350ebe0e8cfb5058bffc9f0a91ac88a84fb7d4e8a909589e361', '5a3c04717da4774a', '\'dan.turner\''),
+(2, 'admin', 'admin', 'admin', 'admin@trill.com', '86507595a098af0977ff8618a0b4fc73ab9e6512c00bf460544d6ea9ad78e6cc', '5b292ffa450bae21', '\'admin\',\'dan.truner\',\'faisal.jaradat\',\'dan.turner\''),
+(3, 'air-rick', 'v', 'erik', 'abc123@gmail.com', 'b107283a33396c08428a8fe7c45b9a2c56f198f1a030628a815d153f9b670131', '4d3bb3d1502cf2c', '\'erik\''),
+(4, 'Richard', 'wang', 'rich.wang', 'richard.wang@ucc.on.ca', 'b452085a86f3c73ef150bfd814cc69775c86238577ed34983dd9e57db14e7ec1', '3fb7217158a48363', '\'rich.wang\''),
+(5, 'Daniel', 'Truner', 'dan.truner', 'dan.truner@ucc.on.ca', 'bf91a27f6df8c16f85f219ebc4483ba32b7c98f95b7bc1d56f505e843879359b', '4229f844c8fb89', '\'dan.truner\''),
+(6, 'Shuaichen ', 'Liao', 'jamesthemosthandsome', 'james.liao@ucc.on.ca', 'fbca6544c38e74206232778f449025d50a26bef3c0906fd33e3999bb80c0a2f6', '26752cdf6ef41a9c', '\'jamesthemosthandsome\''),
+(7, 'Faisal', 'Jaradat', 'faisal.jaradat', 'faisal.jaradat@ucc.on.ca', 'ee0f42031cb9a2a0215e3871bd9b8c321dc5e1b9cca9c73aa41bd2e862cfff7b', '6221d493509a9b11', '\'faisal.jaradat\',\'dan.truner\'');
 
 --
 -- Indexes for dumped tables
@@ -92,6 +111,12 @@ INSERT INTO `users` (`id`, `firstname`, `lastname`, `username`, `email`, `passwo
 -- Indexes for table `comments`
 --
 ALTER TABLE `comments`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `friend_requests`
+--
+ALTER TABLE `friend_requests`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -116,12 +141,17 @@ ALTER TABLE `users`
 ALTER TABLE `comments`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT for table `friend_requests`
+--
+ALTER TABLE `friend_requests`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
